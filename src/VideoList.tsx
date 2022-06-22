@@ -22,6 +22,7 @@ interface Style {
   titleText: TextStyle;
   artistText: TextStyle;
   itemDivider: ViewStyle;
+  flatList: ViewStyle;
 }
 
 const VideoList = (props: Props) => {
@@ -56,6 +57,7 @@ const VideoList = (props: Props) => {
       ItemSeparatorComponent={ItemDivider}
       initialNumToRender={20}
       maxToRenderPerBatch={20}
+      style={styles.flatList}
     />
   );
 };
@@ -85,6 +87,9 @@ const styles = StyleSheet.create<Style>({
     width: '100%',
     backgroundColor: '#607D8B',
     marginVertical: 8,
+  },
+  flatList: {
+    height: '90%',
   },
 });
 

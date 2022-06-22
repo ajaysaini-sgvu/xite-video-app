@@ -26,6 +26,7 @@ const SearchBar = (props: Props) => {
 
   const onCrossClick = () => {
     setSearchBarVisible(false);
+    setSearchPhrase('');
   };
 
   return (

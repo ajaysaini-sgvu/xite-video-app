@@ -1,5 +1,5 @@
 import React, {ErrorInfo, ReactNode} from 'react';
-
+import {Text} from 'react-native';
 interface Props {
   children?: ReactNode;
 }
@@ -24,7 +24,7 @@ class ErrorBoundary extends React.Component<Props, State> {
 
   public render() {
     if (this.state.hasError) {
-      return <h1>Sorry.. there was an error</h1>;
+      return <Text>Sorry.. there was an error</Text>;
     }
 
     return this.props.children;

@@ -10,10 +10,10 @@ import {
 import {colors} from './colors';
 import SearchBar from './SearchBar';
 import SearchIcon from '../assets/search.svg';
-
 interface Style {
   headerContainer: ViewStyle;
   title: TextStyle;
+  searchBarContainer: ViewStyle;
 }
 interface Props {
   title: string;
@@ -34,12 +34,13 @@ const Header = (props: Props) => {
 
   const onSearchToggle = () => {
     setSearchBarVisible(!searchBarVisible);
+    setSearchValue('');
   };
 
   return (
     <View style={styles.headerContainer}>
       {searchBarVisible ? (
-        <View style={{width: '100%'}}>
+        <View style={styles.searchBarContainer}>
           <SearchBar
             searchValue={searchValue}
             setSearchPhrase={setSearchValue}
@@ -74,6 +75,10 @@ const styles = StyleSheet.create<Style>({
     fontSize: 18,
     textAlign: 'left',
     marginLeft: 16,
+    flex: 1,
+  },
+  searchBarContainer: {
+    width: '100%',
   },
 });
 
