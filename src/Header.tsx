@@ -14,6 +14,7 @@ interface Style {
   headerContainer: ViewStyle;
   title: TextStyle;
   searchBarContainer: ViewStyle;
+  searchIcon: ViewStyle;
 }
 interface Props {
   title: string;
@@ -51,7 +52,12 @@ const Header = (props: Props) => {
         <>
           <Text style={styles.title}>{title}</Text>
           <TouchableOpacity onPress={onSearchToggle}>
-            <SearchIcon height={20} width={20} fill="black" />
+            <SearchIcon
+              height={20}
+              width={20}
+              fill="black"
+              style={styles.searchIcon}
+            />
           </TouchableOpacity>
         </>
       )}
@@ -67,7 +73,6 @@ const styles = StyleSheet.create<Style>({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingRight: 16,
   },
   title: {
     color: colors.black,
@@ -79,6 +84,9 @@ const styles = StyleSheet.create<Style>({
   },
   searchBarContainer: {
     width: '100%',
+  },
+  searchIcon: {
+    marginRight: 16,
   },
 });
 

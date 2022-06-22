@@ -36,8 +36,12 @@ const SearchBar = (props: Props) => {
         placeholder="Search"
         value={searchValue}
         onChangeText={setSearchPhrase}
+        testID="input"
       />
-      <TouchableOpacity onPress={onCrossClick} style={styles.crossView}>
+      <TouchableOpacity
+        onPress={onCrossClick}
+        style={styles.crossView}
+        testID="cross">
         <CrossIcon height={14} width={14} fill="black" />
       </TouchableOpacity>
     </View>

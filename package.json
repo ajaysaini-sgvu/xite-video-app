@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "jest-fetch-mock": "^3.0.3",
     "react": "17.0.2",
     "react-native": "0.68.2",
     "react-native-dropdown-picker": "^5.4.2",
@@ -21,6 +22,7 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/react-native": "^9.1.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.67.3",
     "@types/react-test-renderer": "^17.0.1",
@@ -46,6 +48,11 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.svg": "<rootDir>/__mocks__/svgMock.js",
+      "react-native-dropdown-picker": "<rootDir>/__mocks__/react-native-dropdown-picker.js"
+    },
+    "setupFiles": ["./setupJest.js"]
   }
 }

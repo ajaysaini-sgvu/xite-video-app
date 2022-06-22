@@ -72,9 +72,15 @@ const App = () => {
   }, []);
 
   const onSearchValue = (searchPhrase: string) => {
-    setSearchValue(searchPhrase);
+    let input = searchPhrase;
+    if (searchPhrase && searchPhrase.charAt(searchPhrase.length - 1) === ' ') {
+      input = searchPhrase.substring(0, searchPhrase.length - 1) + ',';
+      setSearchValue(input);
+    } else {
+      setSearchValue(searchPhrase);
+    }
 
-    filterMovies(searchPhrase, selectedYear);
+    filterMovies(input, selectedYear);
 
     // populate complete result if input field is cleared
     if (searchValue === '') {
@@ -85,15 +91,22 @@ const App = () => {
   const filterBySearch = (searchPhrase: string) => {
     // // filter the result on the basis of genres id
     let output: IVideo[] = [];
-    const items = result.genres.filter(item => {
-      return item.name.toLowerCase() === searchPhrase.toLowerCase();
-    });
+
+    const musicTypes = searchPhrase.toLowerCase().split(',');
+    const items = result.genres
+      .filter(item => {
+        return musicTypes.indexOf(item.name.toLowerCase()) !== -1;
+      })
+      .map(item => {
+        return item.id;
+      });
+
+    console.log(items);
 
     if (items && items.length > 0) {
-      const genre_id = items[0].id;
       output = result.videos.filter(
         (item: {genre_id: number; release_year: number}) => {
-          return item.genre_id === genre_id;
+          return items.includes(item.genre_id);
         },
       );
     }
@@ -131,13 +144,7 @@ const App = () => {
       setFilterResult(result.videos);
       return;
     }
-
     filterMovies(searchValue, item.value);
-
-    // const out = result.videos?.filter((i: { release_year: number }) => {
-    //   return i.release_year === item.value;
-    // });
-    // setFilterResult(out);
   };
 
   return (
@@ -178,7 +185,7 @@ const styles = StyleSheet.create<Style>({
     margin: 16,
   },
   dropDown: {
-    minHeight: 30,
+    minHeight: 42,
     borderWidth: 1,
     alignSelf: 'flex-end',
   },

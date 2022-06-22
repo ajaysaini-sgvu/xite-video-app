@@ -1,5 +1,5 @@
-import React, {ErrorInfo, ReactNode} from 'react';
-import {Text} from 'react-native';
+import React, { ReactNode } from 'react';
+import { Text } from 'react-native';
 interface Props {
   children?: ReactNode;
 }
@@ -15,16 +15,12 @@ class ErrorBoundary extends React.Component<Props, State> {
 
   public static getDerivedStateFromError(_: Error): State {
     // Update state so the next render will show the fallback UI.
-    return {hasError: true};
-  }
-
-  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('Uncaught error:', error, errorInfo);
+    return { hasError: true };
   }
 
   public render() {
     if (this.state.hasError) {
-      return <Text>Sorry.. there was an error</Text>;
+      return <Text testID="error">Sorry.. there was an error</Text>;
     }
 
     return this.props.children;
