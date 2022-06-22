@@ -9,13 +9,13 @@ import ErrorBoundary from '../src/ErrorBoundary';
 import {render} from '@testing-library/react-native';
 
 it('renders correctly', () => {
-  const ComponentThatThrows = () => {
+  const ChildComponent = () => {
     throw new Error('');
   };
 
   const {getByTestId} = render(
     <ErrorBoundary>
-      <ComponentThatThrows />
+      <ChildComponent />
     </ErrorBoundary>,
   );
 
