@@ -9,7 +9,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {IVideo} from './types';
+import {IVideo} from '../types';
 
 interface Props {
   videos: IVideo[];
