@@ -10,6 +10,7 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import ErrorBoundary from './ErrorBoundary';
+import Header from './Header';
 import {IVideo} from './types';
 import VideoList from './VideoList';
 interface IResult {
@@ -56,6 +57,7 @@ const App = () => {
     <ErrorBoundary>
       <SafeAreaView style={backgroundStyle}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <Header title="HOME" />
         <View style={styles.videoList}>
           <VideoList videos={result?.videos} />
         </View>

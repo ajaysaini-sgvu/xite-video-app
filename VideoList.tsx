@@ -54,6 +54,8 @@ const VideoList = (props: Props) => {
       data={props.videos}
       renderItem={renderItem}
       ItemSeparatorComponent={ItemDivider}
+      initialNumToRender={20}
+      maxToRenderPerBatch={20}
     />
   );
 };
