@@ -5,7 +5,7 @@
 import 'react-native';
 import React from 'react';
 import SearchBar from '../src/SearchBar';
-import { fireEvent, render } from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
@@ -25,7 +25,7 @@ it('test cross click', async () => {
     setSearchPhrase: jest.fn(),
     setSearchBarVisible: jest.fn(),
   };
-  const { getByTestId } = render(<SearchBar {...props} />);
+  const {getByTestId} = render(<SearchBar {...props} />);
 
   const touchableOpacity = getByTestId('cross');
   fireEvent.press(touchableOpacity);

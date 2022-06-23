@@ -101,8 +101,6 @@ const App = () => {
         return item.id;
       });
 
-    console.log(items);
-
     if (items && items.length > 0) {
       output = result.videos.filter(
         (item: {genre_id: number; release_year: number}) => {
@@ -136,15 +134,23 @@ const App = () => {
       setFilterResult(filterByYear(result.videos, year));
       return;
     }
+
+    if (year === -1) {
+      setFilterResult(result.videos);
+      return;
+    }
   };
 
   const onYearSelected = (item: any) => {
     // it reset the filter result if user select first option "Select Year"
-    if (item.value === -1) {
-      setFilterResult(result.videos);
-      return;
-    }
     filterMovies(searchValue, item.value);
+  };
+
+  const onSearchBarVisible = (visible: boolean) => {
+    if (!visible) {
+      filterMovies('', selectedYear);
+    }
+    setSearchBarVisible(visible);
   };
 
   return (
@@ -153,7 +159,7 @@ const App = () => {
         <Header
           title="HOME"
           searchBarVisible={searchBarVisible}
-          setSearchBarVisible={setSearchBarVisible}
+          setSearchBarVisible={onSearchBarVisible}
           searchValue={searchValue}
           setSearchValue={onSearchValue}
         />
@@ -199,6 +205,7 @@ const styles = StyleSheet.create<Style>({
     alignItems: 'flex-end',
     zIndex: 100000,
     marginHorizontal: 16,
+    marginTop: 24,
   },
 });
 

@@ -19,3 +19,7 @@ Assuming you have all the requirements installed, you can setup and run the proj
 ### Android
 
 - `yarn run android` to run the Android application (remember to start a simulator or connect an Android phone)
+
+### Demo
+
+![App Demo](https://im.ezgif.com/tmp/ezgif-1-2fdd0db3ff.gif)

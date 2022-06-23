@@ -1,4 +1,4 @@
-import React, {Dispatch, SetStateAction} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -19,7 +19,7 @@ interface Style {
 interface Props {
   title: string;
   searchBarVisible: boolean;
-  setSearchBarVisible: Dispatch<SetStateAction<boolean>>;
+  setSearchBarVisible: (value: boolean) => void;
   searchValue: string;
   setSearchValue: (value: string) => void;
 }
@@ -80,7 +80,6 @@ const styles = StyleSheet.create<Style>({
     fontSize: 18,
     textAlign: 'left',
     marginLeft: 16,
-    flex: 1,
   },
   searchBarContainer: {
     width: '100%',
