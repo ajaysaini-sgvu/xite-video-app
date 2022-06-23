@@ -22,4 +22,4 @@ Assuming you have all the requirements installed, you can setup and run the proj
 
 ### Demo
 
-![App Demo](https://im.ezgif.com/tmp/ezgif-1-2fdd0db3ff.gif)
+![App Demo](https://github.com/ajaysaini-sgvu/xite-video-app/blob/develop/demo.gif)
